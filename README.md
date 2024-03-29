@@ -11,7 +11,7 @@ pyspark-ai: https://github.com/PZD-CHINA/pyspark-ai.git
 demo result: http://mlp-sdp-spr-7639.jf.intel.com:8888/tree/zedong/texttosql-demo (password: intel123)
 
 # Summary of Model Correctness and Time Performance
-| Model                    | Correctness (%) | Task1 Time (s) | Task2 Time (s) | Task3 Time (s) | Task4 Time (s)                |
+| Model                    | Correctness | Task1 Time (s) | Task2 Time (s) | Task3 Time (s) | Task4 Time (s)                |
 |--------------------------|------------------|----------------|----------------|----------------|-------------------------------|
 | defog/sqlcoder-70b-alpha | 93.0%            | 98.674         | 140.440        | 45.481         | 223.176                       |
 | defog/sqlcoder-7b-2      | 90.5%            | 7.824          | 10.042         | 12.121         | Retry failed 3 times          |
