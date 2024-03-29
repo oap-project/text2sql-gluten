@@ -11,25 +11,9 @@ pyspark-ai: https://github.com/PZD-CHINA/pyspark-ai.git
 demo result: http://mlp-sdp-spr-7639.jf.intel.com:8888/tree/zedong/texttosql-demo (password: intel123)
 
 # Summary of Model Correctness and Time Performance
-| Model                    | Correctness from doc | Time                        |
-|--------------------------|----------------------|-----------------------------|
-| defog/sqlcoder-70b-alpha | 93.0%                | Init time: 24.536 seconds   |
-|                          |                      | Task1 time: 98.674 seconds  |
-|                          |                      | Task2 time: 140.440 seconds |
-|                          |                      | Task3 time: 45.481 seconds  |
-|                          |                      | Task4 time: 223.176 seconds |
-| defog/sqlcoder-7b-2      | 90.5%                | Init time: 5.174 seconds    |
-|                          |                      | Task1 time: 7.824 seconds   |
-|                          |                      | Task2 time: 10.042 seconds  |
-|                          |                      | Task3 time: 12.121 seconds  |
-|                          |                      | Task4 time: retry failed 3 times |
-| defog/sqlcoder-34b-alpha | 84.0%                | Init time: 24.161 seconds   |
-|                          |                      | Task1 time: 143.395 seconds |
-|                          |                      | Task2 time: 65.929 seconds   |
-|                          |                      | Task3 time: 24.730 seconds   |
-|                          |                      | Task4 time: 48.097 seconds   |
-| defog/sqlcoder2          | 74.5%                | Init time: 16.764 seconds   |
-|                          |                      | Task1 time: 9.356 seconds    |
-|                          |                      | Task2 time: 11.901 seconds   |
-|                          |                      | Task3 time: 12.954 seconds   |
-|                          |                      | Task4 time: 25.270 seconds   |
+| Model                    | Correctness (%) | Task1 Time (s) | Task2 Time (s) | Task3 Time (s) | Task4 Time (s)                |
+|--------------------------|------------------|----------------|----------------|----------------|-------------------------------|
+| defog/sqlcoder-70b-alpha | 93.0%            | 98.674         | 140.440        | 45.481         | 223.176                       |
+| defog/sqlcoder-7b-2      | 90.5%            | 7.824          | 10.042         | 12.121         | Retry failed 3 times          |
+| defog/sqlcoder-34b-alpha | 84.0%            | 143.395        | 65.929         | 24.730         | 48.097                        |
+| defog/sqlcoder2          | 74.5%            | 9.356          | 11.901         | 12.954         | 25.270                        |
