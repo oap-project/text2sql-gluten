@@ -1,4 +1,9 @@
-# Summary of GitHub Repositories
+## Text2SQL
+
+This project is LLM-based and it can help users to translate a query specified with human-readable text to Spark SQL statement,
+then acquire the answer after Spark's execution.
+
+## Summary of GitHub Repositories
 
 texttosql: https://github.com/oap-project/text2sql-gluten
 
@@ -10,7 +15,7 @@ pyspark-ai: https://github.com/PZD-CHINA/pyspark-ai.git
 
 demo result: http://mlp-sdp-spr-7639.jf.intel.com:8888/tree/zedong/texttosql-demo (password: intel123)
 
-# Summary of Model Correctness and Time Performance
+## Summary of Model Correctness and Time Performance
 | Model                    | Correctness | Task1 Time (s) | Task2 Time (s) | Task3 Time (s) | Task4 Time (s)                |
 |--------------------------|------------------|----------------|----------------|----------------|-------------------------------|
 | defog/sqlcoder-70b-alpha | 93.0%            | 98.674         | 140.440        | 45.481         | 223.176                       |
