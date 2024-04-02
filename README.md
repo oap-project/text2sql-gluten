@@ -13,8 +13,6 @@ langchain: https://github.com/PZD-CHINA/langchain.git
 
 pyspark-ai: https://github.com/pyspark-ai/pyspark-ai
 
-demo result: http://mlp-sdp-spr-7639.jf.intel.com:8888/tree/zedong/texttosql-demo (password: intel123)
-
 ## Summary of Model Correctness and Time Performance
 | Model                    | Correctness | Task1 Time (s) | Task2 Time (s) | Task3 Time (s) | Task4 Time (s)                |
 |--------------------------|------------------|----------------|----------------|----------------|-------------------------------|
