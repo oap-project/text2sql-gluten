@@ -3,9 +3,9 @@
 
 FROM ubuntu:22.04
 
-# http and https proxy setup
-ENV http_proxy=http://child-prc.intel.com:913
-ENV https_proxy=http://child-prc.intel.com:913
+# Optional http and https proxy setup.
+#ENV http_proxy=http://XXX.com:XXX/
+#ENV https_proxy=http://XXX.com:XXX/
 
 RUN apt-get update  -y \
     && apt-get install -y git wget vim numactl gcc-12 g++-12 python3 python3-pip \
@@ -30,12 +30,14 @@ RUN VLLM_TARGET_DEVICE=cpu python3 setup.py install
 # install langchain
 RUN pip install langchain
 
-# install pyspark pyspark-ai
-RUN pip install pyspark
+# install pyspark and related dependency
+RUN pip install pyspark default-jre
 
-RUN git clone https://github.com/oap-project/pyspark-ai.git /workspace/pyspark-ai
+# dependency for pyspark-ai
+RUN pip install pygments
 
-ENV PYTHONPATH="${PYTHONPATH}:/workspace/vllm"
+RUN git clone https://github.com/PZD-CHINA/pyspark-ai.git /workspace/pyspark-ai
+
 ENV PYTHONPATH="${PYTHONPATH}:/workspace/pyspark-ai"
 
 CMD ["/bin/bash"]
