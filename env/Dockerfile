@@ -1,7 +1,7 @@
 # This Dockerfile is used to construct image that can build and run texttosql model on x86 CPU platform.
 # Based on https://github.com/bigPYJ1151/vllm/blob/384623538c081ed621b04c1eec107132920e5045/Dockerfile.cpu
 
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 # Optional http and https proxy setup.
 #ENV http_proxy=http://XXX.com:XXX/
@@ -15,14 +15,17 @@ RUN pip install --upgrade pip \
     && pip install wheel packaging ninja setuptools>=49.4.0 numpy
     
 # git proxy setup
-RUN git config --global http.proxy http://child-prc.intel.com:913
+RUN git config --global http.proxy http://proxy-us.intel.com:911
 
-RUN git clone -b cpu_pr https://github.com/bigPYJ1151/vllm.git /workspace/vllm
+RUN git clone https://github.com/vllm-project/vllm.git /workspace/vllm
 
 WORKDIR /workspace/vllm
 
 # install requirements-cpu
 RUN pip install -v -r requirements-cpu.txt --extra-index-url https://download.pytorch.org/whl/cpu
+
+# install missing dependency in requirements-cpu.txt
+RUN pip install pygments
 
 # install vllm
 RUN VLLM_TARGET_DEVICE=cpu python3 setup.py install
