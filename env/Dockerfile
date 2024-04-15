@@ -1,7 +1,7 @@
 # This Dockerfile is used to construct image that can build and run texttosql model on x86 CPU platform.
 # Based on https://github.com/bigPYJ1151/vllm/blob/384623538c081ed621b04c1eec107132920e5045/Dockerfile.cpu
 
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # http and https proxy setup
 ENV http_proxy=http://proxy-us.intel.com:911
