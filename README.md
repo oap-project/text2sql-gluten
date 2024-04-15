@@ -32,4 +32,6 @@ docker run -it \
 
 ## Use notebook inside container
 
+```bash
 jupyter notebook --ip=0.0.0.0 --port=XXXX
+```
