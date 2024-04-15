@@ -22,7 +22,7 @@ pyspark-ai: https://github.com/oap-project/pyspark-ai
 ## Quick start using Dockerfile
 
 ```bash
-sudo docker build -t text2sql-gluten-env -f ./env/Dockerfile .
+docker build -t text2sql-gluten-env -f ./env/Dockerfile .
 docker run -it \
            --rm \
            --network=host \
