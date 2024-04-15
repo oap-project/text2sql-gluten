@@ -18,3 +18,20 @@ pyspark-ai: https://github.com/oap-project/pyspark-ai
 | defog/sqlcoder-7b-2      | 90.5%       | 7.824          | 10.042         | 12.121         | Retry failed 3 times |
 | defog/sqlcoder-34b-alpha | 84.0%       | 143.395        | 65.929         | 24.730         | 48.097               |
 | defog/sqlcoder2          | 74.5%       | 9.356          | 11.901         | 12.954         | 25.270               |
+
+## Quick start using Dockerfile
+
+```bash
+docker build -t text2sql-gluten-env -f ./env/Dockerfile .
+docker run -it \
+           --rm \
+           --network=host \
+           -v /path/to/local/model/:/path/to/container/model/ \
+           text2sql-gluten-env
+```
+
+## Use notebook inside container
+
+```bash
+jupyter notebook --ip=0.0.0.0 --port=XXXX
+```
