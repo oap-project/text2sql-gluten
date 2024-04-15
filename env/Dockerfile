@@ -14,8 +14,8 @@ RUN apt-get update  -y \
 RUN pip install --upgrade pip \
     && pip install wheel packaging ninja setuptools>=49.4.0 numpy
     
-# git proxy setup
-RUN git config --global http.proxy http://proxy-us.intel.com:911
+# Optional git proxy setup
+# RUN git config --global http.proxy http://XXX.com:XXX
 
 RUN git clone https://github.com/vllm-project/vllm.git /workspace/vllm
 
