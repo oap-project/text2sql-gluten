@@ -8,7 +8,7 @@ FROM ubuntu:20.04
 #ENV https_proxy=http://XXX.com:XXX/
 
 RUN apt-get update  -y \
-    && apt-get install -y git wget vim numactl gcc-12 g++-12 python3 python3-pip \
+    && apt-get install -y git wget vim numactl gcc-12 g++-12 python3 python3-pip default-jre \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 --slave /usr/bin/g++ g++ /usr/bin/g++-12
 
 RUN pip install --upgrade pip \
@@ -33,8 +33,8 @@ RUN VLLM_TARGET_DEVICE=cpu python3 setup.py install
 # install langchain
 RUN pip install langchain
 
-# install pyspark and related dependency
-RUN pip install pyspark default-jre
+# install pyspark
+RUN pip install pyspark
 
 # dependency for pyspark-ai
 RUN pip install pygments
