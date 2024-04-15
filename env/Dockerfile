@@ -43,4 +43,6 @@ RUN git clone https://github.com/PZD-CHINA/pyspark-ai.git /workspace/pyspark-ai
 
 ENV PYTHONPATH="${PYTHONPATH}:/workspace/pyspark-ai"
 
+RUN pip install notebook
+
 CMD ["/bin/bash"]
