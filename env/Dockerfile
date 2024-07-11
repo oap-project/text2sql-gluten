@@ -24,9 +24,6 @@ WORKDIR /workspace/vllm
 # install requirements-cpu
 RUN pip install -v -r requirements-cpu.txt --extra-index-url https://download.pytorch.org/whl/cpu
 
-# install missing dependency in requirements-cpu.txt
-RUN pip install pygments
-
 # install vllm
 RUN VLLM_TARGET_DEVICE=cpu python3 setup.py install
 
