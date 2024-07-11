@@ -8,16 +8,16 @@ FROM ubuntu:22.04
 #ENV https_proxy=http://XXX.com:XXX/
 
 RUN apt-get update  -y \
-    && apt-get install -y git wget vim numactl gcc-12 g++-12 python3 python3-pip \
+    && apt-get install -y git wget vim numactl gcc-12 g++-12 python3 python3-pip default-jre \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 --slave /usr/bin/g++ g++ /usr/bin/g++-12
 
 RUN pip install --upgrade pip \
     && pip install wheel packaging ninja setuptools>=49.4.0 numpy
     
-# git proxy setup
-RUN git config --global http.proxy http://child-prc.intel.com:913
+# Optional git proxy setup
+# RUN git config --global http.proxy http://XXX.com:XXX
 
-RUN git clone -b cpu_pr https://github.com/bigPYJ1151/vllm.git /workspace/vllm
+RUN git clone https://github.com/vllm-project/vllm.git /workspace/vllm
 
 WORKDIR /workspace/vllm
 
@@ -30,8 +30,8 @@ RUN VLLM_TARGET_DEVICE=cpu python3 setup.py install
 # install langchain
 RUN pip install langchain
 
-# install pyspark and related dependency
-RUN pip install pyspark default-jre
+# install pyspark
+RUN pip install pyspark
 
 # dependency for pyspark-ai
 RUN pip install pygments
@@ -39,5 +39,7 @@ RUN pip install pygments
 RUN git clone https://github.com/PZD-CHINA/pyspark-ai.git /workspace/pyspark-ai
 
 ENV PYTHONPATH="${PYTHONPATH}:/workspace/pyspark-ai"
+
+RUN pip install notebook
 
 CMD ["/bin/bash"]
